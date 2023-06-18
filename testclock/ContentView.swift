@@ -8,14 +8,188 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var dispYear = ""
+    @State var dispMonth = ""
+    @State var dispDate = ""
+    @State var dispDOW = ""
+    @State var dispHour = ""
+    @State var dispMinute = ""
+    @State var dispSecond = ""
+    @State var nowDate = Date()
+    private let dateFormatterYear = DateFormatter()
+    private let dateFormatterMonth = DateFormatter()
+    private let dateFormatterDate = DateFormatter()
+    private let dateFormatterHour = DateFormatter()
+    private let dateFormatterMinute = DateFormatter()
+    private let dateFormatterSecond = DateFormatter()
+    private let dateFormatterDOW = DateFormatter()
+    init() {
+        dateFormatterYear.dateFormat = "YYYY"
+        dateFormatterYear.locale = Locale(identifier: "en_jp")
+        dateFormatterMonth.dateFormat = "MMM"
+        dateFormatterMonth.locale = Locale(identifier: "en_jp")
+        dateFormatterDate.dateFormat = "dd"
+        dateFormatterDate.locale = Locale(identifier: "en_jp")
+        dateFormatterDOW.dateFormat = "E"
+        dateFormatterDOW.locale = Locale(identifier: "en_jp")
+        dateFormatterHour.dateFormat = "HH"
+        dateFormatterHour.locale = Locale(identifier: "en_jp")
+        dateFormatterMinute.dateFormat = "mm"
+        dateFormatterMinute.locale = Locale(identifier: "en_jp")
+        dateFormatterSecond.dateFormat = "ss"
+        dateFormatterSecond.locale = Locale(identifier: "en_jp")
+    }
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            HStack {
+                Text(dispYear.isEmpty ? "\(dateFormatterYear.string(from: nowDate))" : dispYear)
+                    .onAppear {
+                        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+                            self.nowDate = Date()
+                            dispYear = "\(dateFormatterYear.string(from: nowDate))"
+                        }
+                    }
+                    .foregroundColor(.purple)
+                    .font(
+                        .system(
+                            size: 40,
+                            weight: .heavy,
+                            design: .serif
+                        )
+                    )
+                    .padding()
+                Text(dispDOW.isEmpty ? "\(dateFormatterDOW.string(from: nowDate))" : dispDOW)
+                    .onAppear {
+                        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+                            self.nowDate = Date()
+                            dispDOW = "\(dateFormatterDOW.string(from: nowDate))"
+                        }
+                    }
+                    .foregroundColor(.orange)
+                        .font(
+                            .system(
+                                size: 40,
+                                weight: .heavy,
+                                design: .serif
+                            )
+                        )
+                        .padding()
+            }
+            HStack {
+                Text(dispMonth.isEmpty ? "\(dateFormatterMonth.string(from: nowDate))" : dispMonth)
+                    .onAppear {
+                        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+                            self.nowDate = Date()
+                            dispMonth = "\(dateFormatterMonth.string(from: nowDate))"
+                        }
+                    }
+                    .foregroundColor(.blue)
+                    .font(
+                        .system(
+                            size: 50,
+                            weight: .heavy,
+                            design: .rounded
+                        )
+                    )
+                    .padding()
+                Text(dispDate.isEmpty ? "\(dateFormatterDate.string(from: nowDate))" : dispDate)
+                    .onAppear {
+                        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+                            self.nowDate = Date()
+                            dispDate = "\(dateFormatterDate.string(from: nowDate))"
+                        }
+                    }
+                    .foregroundColor(.blue)
+                        .font(
+                            .system(
+                                size: 50,
+                                weight: .heavy,
+                                design: .rounded
+                            )
+                        )
+                        .padding()
+            }.padding(
+                EdgeInsets(
+                    top: 1,        // 上の余白
+                    leading: 1,    // 左の余白
+                    bottom: -40,     // 下の余白
+                    trailing: 1    // 右の余白
+                )
+            )
+            .offset(y: -40)
+            Text(dispHour.isEmpty ? "\(dateFormatterHour.string(from: nowDate))" : dispHour)
+                .onAppear {
+                    Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+                        self.nowDate = Date()
+                        dispHour = "\(dateFormatterHour.string(from: nowDate))"
+                    }
+                }
+                .foregroundColor(.cyan)
+                .font(
+                    .system(
+                        size: 240,
+                        weight: .heavy,
+                        design: .default
+                    )
+                )
+                .padding(
+                    EdgeInsets(
+                        top: 1,        // 上の余白
+                        leading: 1,    // 左の余白
+                        bottom: -80,     // 下の余白
+                        trailing: 1    // 右の余白
+                    )
+                )
+                .offset(y: -70)
+            Text(dispMinute.isEmpty ? "\(dateFormatterMinute.string(from: nowDate))" : dispMinute)
+                .onAppear {
+                    Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+                        self.nowDate = Date()
+                        dispMinute = "\(dateFormatterMinute.string(from: nowDate))"
+                    }
+                }
+                .foregroundColor(.cyan)
+                .font(
+                    .system(
+                        size: 240,
+                        weight: .heavy,
+                        design: .default
+                    )
+                )
+                .padding(
+                    EdgeInsets(
+                        top: 1,        // 上の余白
+                        leading: 1,    // 左の余白
+                        bottom: -80,     // 下の余白
+                        trailing: 1    // 右の余白
+                    )
+                )
+                .offset(y: -70)
+            Text(dispSecond.isEmpty ? "\(dateFormatterSecond.string(from: nowDate))" : dispYear)
+                .onAppear {
+                    Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {_ in
+                        self.nowDate = Date()
+                        dispYear = "\(dateFormatterSecond.string(from: nowDate))"
+                    }
+                }
+                .foregroundColor(.red)
+                .font(
+                    .system(
+                        size: 240,
+                        weight: .heavy,
+                        design: .rounded
+                    )
+                )
+                .padding(
+                    EdgeInsets(
+                        top: 1,        // 上の余白
+                        leading: 1,    // 左の余白
+                        bottom: -80,     // 下の余白
+                        trailing: 1    // 右の余白
+                    )
+                )
+                .offset(y: -70)
         }
-        .padding()
     }
 }
 
