@@ -49,7 +49,7 @@ struct ContentView: View {
                             dispYear = "\(dateFormatterYear.string(from: nowDate))"
                         }
                     }
-                    .foregroundColor(.purple)
+                    .foregroundColor(.secondary)
                     .font(
                         .system(
                             size: 40,
@@ -65,7 +65,7 @@ struct ContentView: View {
                             dispDOW = "\(dateFormatterDOW.string(from: nowDate))"
                         }
                     }
-                    .foregroundColor(.orange)
+                    .foregroundColor(.secondary)
                         .font(
                             .system(
                                 size: 40,
@@ -83,7 +83,7 @@ struct ContentView: View {
                             dispMonth = "\(dateFormatterMonth.string(from: nowDate))"
                         }
                     }
-                    .foregroundColor(.blue)
+                    .foregroundColor(.accentColor)
                     .font(
                         .system(
                             size: 50,
@@ -99,7 +99,7 @@ struct ContentView: View {
                             dispDate = "\(dateFormatterDate.string(from: nowDate))"
                         }
                     }
-                    .foregroundColor(.blue)
+                    .foregroundColor(.accentColor)
                         .font(
                             .system(
                                 size: 50,
@@ -124,7 +124,7 @@ struct ContentView: View {
                         dispHour = "\(dateFormatterHour.string(from: nowDate))"
                     }
                 }
-                .foregroundColor(.cyan)
+                .foregroundColor(.primary)
                 .font(
                     .system(
                         size: 240,
@@ -148,7 +148,7 @@ struct ContentView: View {
                         dispMinute = "\(dateFormatterMinute.string(from: nowDate))"
                     }
                 }
-                .foregroundColor(.cyan)
+                .foregroundColor(.primary)
                 .font(
                     .system(
                         size: 240,
