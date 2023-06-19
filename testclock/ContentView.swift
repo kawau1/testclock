@@ -24,20 +24,20 @@ struct ContentView: View {
     private let dateFormatterSecond = DateFormatter()
     private let dateFormatterDOW = DateFormatter()
     init() {
-        dateFormatterYear.dateFormat = "YYYY"
-        dateFormatterYear.locale = Locale(identifier: "en_jp")
+        dateFormatterYear.dateFormat = "YYYY年"
+        dateFormatterYear.locale = Locale(identifier: "ja_JP")
         dateFormatterMonth.dateFormat = "MMM"
-        dateFormatterMonth.locale = Locale(identifier: "en_jp")
-        dateFormatterDate.dateFormat = "dd"
-        dateFormatterDate.locale = Locale(identifier: "en_jp")
-        dateFormatterDOW.dateFormat = "E"
-        dateFormatterDOW.locale = Locale(identifier: "en_jp")
-        dateFormatterHour.dateFormat = "HH"
-        dateFormatterHour.locale = Locale(identifier: "en_jp")
+        dateFormatterMonth.locale = Locale(identifier: "ja_JP")
+        dateFormatterDate.dateFormat = "dd日"
+        dateFormatterDate.locale = Locale(identifier: "ja_JP")
+        dateFormatterDOW.dateFormat = "(E)"
+        dateFormatterDOW.locale = Locale(identifier: "ja_JP")
+        dateFormatterHour.dateFormat = "H"
+        dateFormatterHour.locale = Locale(identifier: "ja_JP")
         dateFormatterMinute.dateFormat = "mm"
-        dateFormatterMinute.locale = Locale(identifier: "en_jp")
+        dateFormatterMinute.locale = Locale(identifier: "ja_JP")
         dateFormatterSecond.dateFormat = "ss"
-        dateFormatterSecond.locale = Locale(identifier: "en_jp")
+        dateFormatterSecond.locale = Locale(identifier: "ja_JP")
     }
     var body: some View {
         VStack {
@@ -54,7 +54,7 @@ struct ContentView: View {
                         .system(
                             size: 40,
                             weight: .heavy,
-                            design: .serif
+                            design: .default
                         )
                     )
                     .padding()
@@ -70,7 +70,7 @@ struct ContentView: View {
                             .system(
                                 size: 40,
                                 weight: .heavy,
-                                design: .serif
+                                design: .default
                             )
                         )
                         .padding()
@@ -88,7 +88,7 @@ struct ContentView: View {
                         .system(
                             size: 50,
                             weight: .heavy,
-                            design: .rounded
+                            design: .default
                         )
                     )
                     .padding()
@@ -104,7 +104,7 @@ struct ContentView: View {
                             .system(
                                 size: 50,
                                 weight: .heavy,
-                                design: .rounded
+                                design: .default
                             )
                         )
                         .padding()
